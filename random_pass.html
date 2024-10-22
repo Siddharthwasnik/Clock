@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>random-password</title>
+</head>
+
+<body>
+
+  <script>
+    function generatePassword(length, includeLowercase, includeUppercase, includeNumber, includeSymbol) {
+      const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+      const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const numberChars = "0123456789";
+      const symbolChars = "!@#$%^&*()-+=";
+   let allowedChars = "";
+      let password = "";
+      allowedChars += includeLowercase ? lowercaseChars : "";
+      allowedChars += includeUppercase ? uppercaseChars : "";
+      allowedChars += includeNumber ? numberChars : "";
+      allowedChars += includeSymbol ? symbolChars : "";
+
+      if (length <= 0) {
+        return (`Password lenght should be at least 1`)
+      }
+  if (allowedChars.length ===0) {
+    return(`At least one set of character is need to be selected !`)
+    
+  }
+  for (let i = 0; i < length; i++) {
+    const RnadomIndex = Math.floor(Math.random()* allowedChars.length);
+    password +=allowedChars[RnadomIndex];
+
+    
+  }
+      return password;
+    }
+    const passwordLength = 0;
+    const includeLowercase = true;
+    const includeUppercase = true;
+    const includeNumber = true;
+    const includeSymbol = true;
+
+
+    const password = generatePassword(passwordLength, includeLowercase, includeUppercase, includeNumber, includeSymbol);
+    console.log(`Generated Password : ${password}`);
+
+  </script>
+</body>
+
+</html>

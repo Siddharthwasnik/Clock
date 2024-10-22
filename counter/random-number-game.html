@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   const miniNum = 1;
+   const maxMum = 100;
+   const answer = Math.floor(Math.random() * ( maxMum - miniNum + 1))+miniNum;
+   console.log(answer);
+
+   let guess;
+   let attempts = 0;
+   let running = true ;
+
+   while (running) {
+    guess = window.prompt(`Guess a number between ${miniNum}-${maxMum} `);
+    guess = Number(guess);
+    if (guess<miniNum||guess>maxMum) {
+ window.alert("Please enter the valid number ");
+      
+    }
+    else if (isNaN(guess)) {
+      window.alert("Please enter the valid number ");
+    }
+    else{
+      attempts++;
+      if (guess<answer) {
+        window.alert("Too Low ! guess higher please.")
+      }
+      else   if (guess>answer) {
+        window.alert("Too High ! guess lower please.")
+      }
+      else {
+        window.alert(`Yo Yo you have guessed correct! in ${attempts} attempts`);
+        running = false ;
+      }
+    }
+   }
+
+
+  </script>
+</body>
+</html>

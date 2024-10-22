@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+      width: 100vw;
+      height: 100vh;
+      font-family:'Times New Roman', Times, serif;
+      text-align: center;
+      display: grid;
+      place-items: center;
+    }
+h1{
+  background: linear-gradient(to right,hsl(319, 93%, 47%),hsl(222, 64%, 47%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+    .main {
+    width: 500px;
+    height: 300px;
+    border: 2px solid silver;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px blue;
+    }
+    .clock{
+      margin-top: 50px;
+      font-size: 48px;
+      font-weight: bold;
+    }
+    .date{
+      font-size: 24px;
+      font-weight: bold;
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <div class="main">
+    <h1>Digital-Clock</h1>
+   
+    <div class="date"></div> 
+    <div class="clock"></div>
+  </div>
+
+  <script>
+    // js code......................
+    const clock = document.querySelector('.clock');
+
+ let date = document.querySelector(".date");
+
+
+const currentDate = new Date();
+const FullDate = currentDate.toLocaleDateString('en-us',{
+  weekday:"long",
+  year :"numeric",
+  month:"long",
+  day:"numeric"
+
+})
+date.textContent=FullDate;
+console.log(FullDate);
+setInterval(() => {
+      let time = new Date()
+      clock.innerHTML = time.toLocaleTimeString('en-US', {  hour12: true })
+    }, 1000)
+
+
+  </script>
+</body>
+
+</html>
